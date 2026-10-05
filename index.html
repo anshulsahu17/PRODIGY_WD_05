@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07152e" />
+  <meta name="description" content="A responsive weather application with current conditions and a five-day forecast." />
+  <title>Weather App | Prodigy InfoTech Task 05</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Weather home"><span class="brand-icon">☀</span> sky<span>cast</span></a>
+      <span class="task-label">PRODIGY INFOTECH <b>·</b> TASK 05</span>
+    </header>
+
+    <section class="dashboard" aria-label="Weather dashboard">
+      <div class="dashboard-heading">
+        <div>
+          <p class="eyebrow">WEATHER AT A GLANCE</p>
+          <h1>Weather <span>App</span></h1>
+          <p class="subtitle">Current conditions, wherever you are.</p>
+        </div>
+        <div class="unit-switch" aria-label="Temperature unit">
+          <button class="unit active" id="celsius-btn" type="button" aria-pressed="true">°C</button>
+          <button class="unit" id="fahrenheit-btn" type="button" aria-pressed="false">°F</button>
+        </div>
+      </div>
+
+      <form class="search-form" id="search-form">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <label class="sr-only" for="city-input">Search city</label>
+        <input id="city-input" type="search" placeholder="Search for a city..." autocomplete="off" required />
+        <button type="submit" id="search-btn"><span class="button-text">Search</span><span class="button-loader" aria-hidden="true"></span></button>
+      </form>
+      <button class="location-button" id="location-btn" type="button"><span aria-hidden="true">◎</span> Use my current location</button>
+
+      <div class="notice" id="notice" role="status" aria-live="polite">Search for a city or use your current location to see the weather.</div>
+
+      <section class="current-weather" id="current-weather" aria-label="Current weather" hidden>
+        <div class="current-main">
+          <div class="location-line"><span class="location-pin">⌖</span><div><h2 id="city-name">—</h2><p id="local-time">—</p></div></div>
+          <div class="current-condition">
+            <div class="weather-emoji" id="current-icon" aria-hidden="true">☀️</div>
+            <div><div class="temperature"><span id="current-temp">--</span><sup id="current-unit">°C</sup></div><p id="condition-text">—</p><p class="feels-like">Feels like <strong id="feels-like">--°</strong></p></div>
+          </div>
+        </div>
+        <div class="current-side">
+          <div class="sun-decoration" id="sun-decoration">☀</div>
+          <p class="side-caption">CURRENT CONDITIONS</p>
+          <div class="mini-stats">
+            <div><span>H</span><strong id="today-high">--°</strong></div>
+            <div><span>L</span><strong id="today-low">--°</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="details-section" id="details-section" hidden>
+        <div class="section-title"><h2>Today's highlights</h2><span id="updated-at">LIVE WEATHER</span></div>
+        <div class="details-grid">
+          <article class="detail-card"><div class="detail-label"><span>💧</span> Humidity</div><strong id="humidity">--<small>%</small></strong><p>Relative humidity</p></article>
+          <article class="detail-card"><div class="detail-label"><span>🌬</span> Wind speed</div><strong id="wind">--<small> km/h</small></strong><p id="wind-direction">—</p></article>
+          <article class="detail-card"><div class="detail-label"><span>🌡</span> Feels like</div><strong id="detail-feels">--°</strong><p>Apparent temperature</p></article>
+          <article class="detail-card"><div class="detail-label"><span>☀️</span> UV index</div><strong id="uv-index">--</strong><p id="uv-label">Today's peak</p></article>
+        </div>
+      </section>
+
+      <section class="forecast-section" id="forecast-section" hidden>
+        <div class="section-title"><h2>5-day forecast</h2><span>UPCOMING DAYS</span></div>
+        <div class="forecast-list" id="forecast-list"></div>
+      </section>
+    </section>
+    <footer><span>Built with <b>HTML</b>, <b>CSS</b> &amp; <b>JavaScript</b></span><span class="footer-dot">•</span><span>Weather data by Open-Meteo</span></footer>
+  </main>
+</body>
+</html>
